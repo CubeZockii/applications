@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./CSS/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to the Admin Panel</h2>
+        <button id="logout">Logout</button>
+    </div>
+
+    <script>
+        // Überprüfung, ob der Nutzer Admin-Zugriff hat
+        if (localStorage.getItem("isAdmin") !== "true") {
+            window.location.href = "admin.html"; // Falls nicht eingeloggt, zurück zur Login-Seite
+        }
+
+        // Logout-Funktion
+        document.getElementById("logout").addEventListener("click", () => {
+            localStorage.removeItem("isAdmin"); // Admin-Status entfernen
+            window.location.href = "admin.html"; // Zurück zur Login-Seite
+        });
+    </script>
+</body>
+</html>
